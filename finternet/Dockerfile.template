@@ -1,0 +1,14 @@
+# Build stage
+FROM balenalib/%%BALENA_ARCH%%-alpine:3.12
+
+WORKDIR /usr/src
+
+RUN install_packages hostapd iw dnsmasq iptables
+
+ENV UDEV=on
+
+COPY hostapd.conf /etc/hostapd.conf
+COPY dnsmasq.conf /etc/dnsmasq.conf
+COPY entrypoint.sh /usr/src/entrypoint.sh
+
+CMD ["./entrypoint.sh"]

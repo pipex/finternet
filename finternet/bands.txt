@@ -1,0 +1,1 @@
+default: '+QCFG: "band",0xff,0x80080000df,0x0'
